@@ -1,32 +1,33 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
 int main(){
 	
-	std::string name, surname;
+	string name, surname;
 	char initial;
 	
-	std::cout << "Enter the name: ";
-	std::cin >> name;
-	std::cout << "Enter the surname: ";
-	std::cin >> surname;
-	std::cout << "Enter the initial: ";
-	std::cin >> initial;
+	cout << "Enter the name: ";
+	cin >> name;
+	cout << "Enter the surname: ";
+	cin >> surname;
+	cout << "Enter the initial: ";
+	cin >> initial;
 	
-	std::cout << "Name: " << name << std::endl;
-	std::cout << "Surname: " << surname << std::endl;
-	std::cout << "Initial: " << initial << std::endl;
+	cout << "Name: " << name << endl;
+	cout << "Surname: " << surname << endl;
+	cout << "Initial: " << initial << endl;
 	
 	
 	int number;
-	std::cout << "Enter a number : ";
-	std::cin >> number;
+	cout << "Enter a number : ";
+	cin >> number;
 	if(number > 0){
-		std::cout << "The number is positive";
+		cout << "The number is positive";
 	}else if (number == 0){
-		std::cout << "The number is zero";
+		cout << "The number is zero";
 	}else if (number < 0){
-		std::cout << "The number is negative";
+		cout << "The number is negative";
 	}
 	
 	return 0;

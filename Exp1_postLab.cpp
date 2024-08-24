@@ -5,43 +5,43 @@
 
 // Class representing a book
 class Book {
-    std::string title;
-    std::string author;
-    std::string ISBN;
+    string title;
+    string author;
+    string ISBN;
     bool status; // true for available, false for issued
 
 public:
-    Book(const std::string &t, const std::string &a, const std::string &i) 
+    Book(const string &t, const string &a, const string &i) 
         : title(t), author(a), ISBN(i), status(true) {}
 
     // Getters and setters
     bool getStatus() const { return status; }
     void setStatus(bool s) { status = s; }
-    std::string getISBN() const { return ISBN; }
+    string getISBN() const { return ISBN; }
 };
 
 // Class representing a library member
 class Member {
-    std::string memberID;
-    std::string name;
-    std::vector<Book*> borrowedBooks;
+    string memberID;
+    string name;
+    vector<Book*> borrowedBooks;
 
 public:
-    Member(const std::string &id, const std::string &n) 
+    Member(const string &id, const string &n) 
         : memberID(id), name(n) {}
 
     // Add and remove books from borrowed list
     void borrowBook(Book &b) { borrowedBooks.push_back(&b); }
     void returnBook(Book &b) {
-        borrowedBooks.erase(std::remove(borrowedBooks.begin(), borrowedBooks.end(), &b), borrowedBooks.end());
+        borrowedBooks.erase(remove(borrowedBooks.begin(), borrowedBooks.end(), &b), borrowedBooks.end());
     }
-    std::string getID() const { return memberID; }
+    string getID() const { return memberID; }
 };
 
 // Class representing the library
 class Library {
-    std::vector<Book> books;
-    std::vector<Member> members;
+    vector<Book> books;
+    vector<Member> members;
 
 public:
     // Add new book and member
@@ -49,13 +49,13 @@ public:
     void registerMember(const Member &m) { members.push_back(m); }
 
     // Find book and member by ID
-    Book* findBookByISBN(const std::string &isbn) {
+    Book* findBookByISBN(const string &isbn) {
         for (auto &b : books) {
             if (b.getISBN() == isbn) return &b;
         }
         return nullptr;
     }
-    Member* findMemberByID(const std::string &id) {
+    Member* findMemberByID(const string &id) {
         for (auto &m : members) {
             if (m.getID() == id) return &m;
         }
@@ -63,29 +63,29 @@ public:
     }
 
     // Issue and return book
-    void issueBook(const std::string &isbn, const std::string &memberID) {
+    void issueBook(const string &isbn, const string &memberID) {
         Book* book = findBookByISBN(isbn);
         Member* member = findMemberByID(memberID);
 
         if (book && member && book->getStatus()) {
             book->setStatus(false);
             member->borrowBook(*book);
-            std::cout << "Book issued successfully.\n";
+            cout << "Book issued successfully.\n";
         } else {
-            std::cout << "Book cannot be issued.\n";
+            cout << "Book cannot be issued.\n";
         }
     }
 
-    void returnBook(const std::string &isbn, const std::string &memberID) {
+    void returnBook(const string &isbn, const string &memberID) {
         Book* book = findBookByISBN(isbn);
         Member* member = findMemberByID(memberID);
 
         if (book && member && !book->getStatus()) {
             book->setStatus(true);
             member->returnBook(*book);
-            std::cout << "Book returned successfully.\n";
+            cout << "Book returned successfully.\n";
         } else {
-            std::cout << "Book cannot be returned.\n";
+            cout << "Book cannot be returned.\n";
         }
     }
 };
