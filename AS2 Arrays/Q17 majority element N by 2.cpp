@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
 
-void findMajorityElement(int arr[], int size)
+void findMajorityElement(int arr[], int N)
 {
-    int halfLen = size/2;
+    int halfLen = N/2;
     int count = 0;
     int element;
-    for(int i = 0; i < size; i++)
+    for(int i = 0; i < N; i++)
     {
-        for (int j = i; j < size; j++)
+        for (int j = i; j < N; j++)
         {
             if(arr[i] == arr[j])
             {
