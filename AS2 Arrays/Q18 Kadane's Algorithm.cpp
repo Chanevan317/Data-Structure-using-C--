@@ -19,12 +19,8 @@ void maxSubarraySum(int arr[], int size)
             }
         }
     }
-    cout << "The maximum subarray sum in the array is : " << maxSum << endl;
-    cout << "The subarray is : ";
-    for (int i = index1; i <= index2 ; i++)
-    {
-        cout << arr[i] << " ";
-    }
+    int count = index2 - index1 + 1;
+    cout << "The length of the maximum subarray sum in the array is : " << count << endl;
 }
 
 int main()

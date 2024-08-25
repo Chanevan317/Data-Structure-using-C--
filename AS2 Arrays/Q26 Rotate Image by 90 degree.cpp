@@ -4,16 +4,10 @@ using namespace std;
 
 void rotate90Image(int M[][4], int row, int col) 
 {
-    int rotatedM[4][4];
-    for(int i = 0; i < row; i++) {
-        for(int j = 0; j < col; j++) {
-            rotatedM[i][j] = M[j][i];
-        }
-    }
     cout << "Rotated matrix : " << endl;
     for(int i = 0; i < row; i++) {
         for(int j = 0; j < col; j++) {
-            cout << rotatedM[i][j] << " ";
+            cout << M[j][i] << " ";
         }
         cout << endl;
     }
