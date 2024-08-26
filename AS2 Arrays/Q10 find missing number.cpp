@@ -1,11 +1,10 @@
 #include <iostream>
 using namespace std;
 
-int missingNumber(int arr[], int size) {
-    int N = size;
+int missingNumber(int arr[], int N) {
     int expectedSum = N * (N + 1) / 2;
     int sum = 0;
-    for (int i = 0; i < size-1; i++) {
+    for (int i = 0; i < N-1; i++) {
         sum += arr[i];
     }
     return expectedSum - sum;
