@@ -70,6 +70,10 @@
     "stacktrace": "cpp",
     "regex": "cpp",
     "valarray": "cpp",
-    "any": "cpp"
+    "any": "cpp",
+    "chrono": "cpp",
+    "functional": "cpp",
+    "algorithm": "cpp",
+    "format": "cpp"
   }
 }
