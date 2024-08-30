@@ -26,19 +26,22 @@ int atoi(string s)
             i++;
         }
         // Check for negative sign
-        if (i < n && s[i] == '-') {
+        if (i < n && s[i] == '-') 
+        {
             neg = true;
             i++;
         }
         // Convert characters to integer
-        if (i < n && s[i] >= '0' && s[i] <= '9') {
+        if (i < n && s[i] >= '0' && s[i] <= '9') 
+        {
             integer = integer * 10 + (s[i] - '0');
         }
 
         i++;
     }
     // Make the integer negative if negative sign present
-    if (neg) {
+    if (neg) 
+    {
         integer = -integer;
     }
     
