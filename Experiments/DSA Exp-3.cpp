@@ -63,64 +63,64 @@ class LinkedList{
 			temp -> Next = new_node;
 		}
 
-        void delete_at_begin() {
-        if (head == nullptr) {
-            cout << "Linked list is empty!" << endl;
-            return;
-        }
-        Node* temp = head;
-        head = head->Next;
-        delete temp;
-    }
+		void delete_at_begin() {
+			if (head == nullptr) {
+				cout << "Linked list is empty!" << endl;
+				return;
+			}
+			Node* temp = head;
+			head = head->Next;
+			delete temp;
+		}
 
-    void delete_at_end() {
-        if (head == nullptr) {
-            cout << "Linked list is empty!" << endl;
-            return;
-        }
-        if (head->Next == nullptr) { // Only one element
-            delete_at_begin();
-            return;
-        }
-        Node* temp = head;
-        Node* prev = nullptr;
-        while (temp->Next != nullptr) {
-            prev = temp;
-            temp = temp->Next;
-        }
-        prev->Next = nullptr;
-        delete temp;
-    }
+		void delete_at_end() {
+			if (head == nullptr) {
+				cout << "Linked list is empty!" << endl;
+				return;
+			}
+			if (head->Next == nullptr) { // Only one element
+				delete_at_begin();
+				return;
+			}
+			Node* temp = head;
+			Node* prev = nullptr;
+			while (temp->Next != nullptr) {
+				prev = temp;
+				temp = temp->Next;
+			}
+			prev->Next = nullptr;
+			delete temp;
+		}
 
-    void delete_between(int pos) {
-        if (head == nullptr) {
-            cout << "Linked list is empty!" << endl;
-            return;
-        }
-        if (pos < 0) {
-            cout << "Invalid position   !" << endl;
-            return;
-        }
-        if (pos == 0) {
-            delete_at_begin();
-            return;
-        }
-        Node* temp = head;
-        Node* prev = nullptr;
-        int currentPos = 0;
-        while (temp != nullptr && currentPos < pos) {
-            prev = temp;
-            temp = temp->Next;
-            currentPos++;
-        }
-        if (temp == nullptr) {
-            cout << "Position out of range!" << endl;
-            return;
-        }
-        prev->Next = temp->Next;
-        delete temp;
-    }
-		
+		void delete_between(int pos) {
+			if (head == nullptr) {
+				cout << "Linked list is empty!" << endl;
+				return;
+			}
+			if (pos < 0) {
+				cout << "Invalid position   !" << endl;
+				return;
+			}
+			if (pos == 0) {
+				delete_at_begin();
+				return;
+			}
+			Node* temp = head;
+			Node* prev = nullptr;
+			int currentPos = 0;
+			while (temp != nullptr && currentPos < pos) {
+				prev = temp;
+				temp = temp->Next;
+				currentPos++;
+			}
+			if (temp == nullptr) {
+				cout << "Position out of range!" << endl;
+				return;
+			}
+			prev->Next = temp->Next;
+			delete temp;
+		}
+			
 		bool searching(int key){
 			if(head == nullptr){
 				cout << "Linked list doesn't exist" << endl;
